@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "fine-gradient-218116": {
+      "hosting": {
+        "ProyectoCCovidWeb": [
+          "fine-gradient-218116"
+        ]
+      }
+    }
+  }
+}
