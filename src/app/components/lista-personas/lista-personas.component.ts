@@ -36,24 +36,26 @@ export class ListaPersonasComponent implements OnInit {
         item => {
           this.dataPersonas = [];
           item.forEach(element => {
-            const x: any = element.payload.toJSON();
-            x.skey = element.key;
-            const tmpPersona: Persona = {
-              skey:  element.key,
-              nombres: x.nombres,
-              apellidos: x.apellidos,
-              tipoID: x.tipoID,
-              id: x.id,
-              telefono: x.telefono,
-              departamento: x.departamento,
-              municipio: x.municipio,
-              edad: x.edad,
-              direccion: x.direccion,
-              fachaDatos: x.fachaDatos,
-              caso: x.caso,
-            };
-            this.dataPersonas.push(tmpPersona);
-            this.dataSource = new MatTableDataSource<Persona>(this.dataPersonas);
+            try {
+              const x: any = element.payload.toJSON();
+              x.skey = element.key;
+              const tmpPersona: Persona = {
+                skey:  element.key,
+                nombres: x.nombres,
+                apellidos: x.apellidos,
+                tipoID: x.tipoID,
+                id: x.id,
+                telefono: x.telefono,
+                departamento: x.departamento,
+                municipio: x.municipio,
+                edad: x.edad,
+                direccion: x.direccion,
+                fachaDatos: x.fachaDatos,
+                caso: x.caso,
+              };
+              this.dataPersonas.push(tmpPersona);
+              this.dataSource = new MatTableDataSource<Persona>(this.dataPersonas);
+            } catch (error) {}
           });
         }
       );
