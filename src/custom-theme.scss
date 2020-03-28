@@ -60,3 +60,10 @@ $ProyectoCCovidWeb-theme: mat-light-theme($ProyectoCCovidWeb-primary, $ProyectoC
   }
 }
 
+.yelllow-snackbar {
+  background-color: #FFD700;
+  color: aliceblue !important;
+  .mat-simple-snackbar-action {
+    color: aliceblue !important;
+  }
+}

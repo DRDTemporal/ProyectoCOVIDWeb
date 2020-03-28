@@ -9,6 +9,8 @@ export class Persona {
   municipio: string;
   edad: string;
   direccion: string;
-  fachaDatos: string;
   caso: number;
+  fechaDatos: string;
+  latitud: string;
+  logitud: string;
 }
