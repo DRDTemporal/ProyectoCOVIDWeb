@@ -2,10 +2,10 @@ import { ExportarService } from './../../services/exportar.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { ListaPersonasComponent } from '../lista-personas/lista-personas.component';
-import { AngularFireAuth } from '@angular/fire/auth/auth';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { Persona } from 'src/app/shared/models/persona';
 import { PersonasService } from 'src/app/services/personas.service';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar, MatTableDataSource } from '@angular/material';
 
 @Component({
   selector: 'app-index',
@@ -35,7 +35,6 @@ export class IndexComponent implements OnInit {
               const x: any = element.payload.toJSON();
               x.skey = element.key;
               const tmpPersona: Persona = {
-                skey:  element.key,
                 nombres: x.nombres,
                 apellidos: x.apellidos,
                 tipoID: x.tipoID,
@@ -48,10 +47,11 @@ export class IndexComponent implements OnInit {
                 fechaDatos: x.fechaDatos,
                 caso: x.caso,
                 latitud: x.latitud,
-                logitud: x.longitud,
+                longitud: x.longitud,
               };
               this.dataPersonas.push(tmpPersona);
               this.listaPersonas.dataPersonas = this.dataPersonas;
+              this.listaPersonas.dataSource = new MatTableDataSource<Persona>(this.dataPersonas);
             } catch (error) {}
           });
         }

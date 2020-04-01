@@ -1,5 +1,4 @@
 export class Persona {
-  skey: string;
   nombres: string;
   apellidos: string;
   tipoID: string;
@@ -12,5 +11,5 @@ export class Persona {
   caso: number;
   fechaDatos: string;
   latitud: string;
-  logitud: string;
+  longitud: string;
 }

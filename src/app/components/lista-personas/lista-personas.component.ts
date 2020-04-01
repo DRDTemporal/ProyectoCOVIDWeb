@@ -15,7 +15,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class ListaPersonasComponent implements OnInit {
   displayedColumns: string[] = Constants.columns;
   public dataPersonas: Persona[] = [];
-  private dataSource = new MatTableDataSource<Persona>(this.dataPersonas);
+  public dataSource = new MatTableDataSource<Persona>(this.dataPersonas);
   constructor( ) { }
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
